@@ -1,0 +1,49 @@
+.box
+{
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+}
+
+#bluebox
+{
+    border: 2px solid blue;
+    padding: 75px;
+    background-color:blue ;
+    margin-right: 10px;
+
+
+}
+
+#blackbox
+{
+    border: 2px solid black;
+    padding: 75px;
+    background-color:black ;
+    color: white;
+    margin-right: 10px;
+
+
+
+}
+
+#greenbox
+{
+    border: 2px solid green;
+    padding: 75px;
+    background-color:green ;
+    margin-right: 10px;
+
+
+
+}
+
+#redbox
+{
+    border: 2px solid red;
+    padding: 75px;
+    background-color:red ;
+    margin-right: 10px;
+
+
+}
