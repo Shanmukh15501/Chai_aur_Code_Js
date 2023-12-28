@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const ht = parseFloat(document.querySelector("#height").value);
         const wt = parseFloat(document.querySelector("#weight").value);
+        if (isNaN(ht) ||   ht == '')
+        {
+                alert("Enter a valid Height")
+        }
+
+        if (isNaN(wt) ||   wt == '')
+        {
+                alert("Enter a valid weight")
+        }
         
         const result = wt / ((ht / 100) **2);
         
