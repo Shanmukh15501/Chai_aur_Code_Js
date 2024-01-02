@@ -1,0 +1,57 @@
+.upper1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 30%;
+    background: url("images/bg.jpg");
+    color:white;
+    font-family: 'Courier New';
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
+
+.prompt-input 
+{
+    display: block;
+    margin: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+}
+
+select {
+    width: auto; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+}
+
+input[type="submit"] {
+    width: auto; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+}
+
+.image-gallery
+{
+    display: flex;
+    gap: 15px;
+    padding: 0 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1250px;
+
+  
+}
+
+ .img-card {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    width: 285px;
+  }

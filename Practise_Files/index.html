@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body id="special">
+    <h1>Amazing Images</h1>
+    <button id="btn1" style="border: 2px solid green; padding: 10px;">BUTTON -1 CLICK ME</button>
+    <button id="btn2" style="border: 2px solid green; padding: 10px;">BUTTON -2 CLICK ME</button>
+    <button id="btn3" style="border: 2px solid green; padding: 10px;">BUTTON -3 CLICK ME</button>
+
+    <ul>
+        <li>
+            <!-- method-1 -->
+            <img id="yooooo" width="200px" src="https://static.wixstatic.com/media/eeef8c_853bb5fc5dfc427fa09dced0a1270a24~mv2.jpg/v1/fill/w_600,h_600,al_c,lg_1,q_80,enc_auto/shanu.jpg" onclick="alert('#old approach should be avoided')">
+        </li>
+        <li>
+            <img id="yooooo2" width="200px" src="https://static.wixstatic.com/media/eeef8c_853bb5fc5dfc427fa09dced0a1270a24~mv2.jpg/v1/fill/w_600,h_600,al_c,lg_1,q_80,enc_auto/shanu.jpg">
+        </li>
+        <li>
+            <img id="yooooo3" width="200px" src="https://static.wixstatic.com/media/eeef8c_853bb5fc5dfc427fa09dced0a1270a24~mv2.jpg/v1/fill/w_600,h_600,al_c,lg_1,q_80,enc_auto/shanu.jpg">
+        </li>
+    </ul>
+
+    <script>
+        document.getElementById("yooooo").onclick = function() {
+            alert("METHOD-2 wrong approach because of limited methods. Let's use the modern approach only");
+        }
+
+        document.getElementById("yooooo2").onclick = function() {
+            console.log("base class");
+        }
+
+        document.getElementById("special").addEventListener('click', function(e) {
+            console.log("CALLING PARENT");
+            console.log("event object", e);
+        })
+
+        document.getElementById("yooooo3").addEventListener('click', function(e) {
+            console.log("classs 3", e);
+            console.log(e);
+            alert("Right approach");
+        }, false)
+
+        const changeContent = function() {
+            document.querySelector("h1").innerHTML = "NEXT LEVEL IMAGES";
+        }
+
+        const changeTimeout = setTimeout(changeContent, 2000);
+
+        document.getElementById("btn1").addEventListener('click', function(e) {
+            console.log("ENTERED THE FUNC");
+            clearTimeout(changeTimeout);
+            console.log("Event Stopped");
+        })
+
+        let intervalId; // Declare a variable to store the interval ID globally
+
+        const startinter = function mytimer() {
+            console.log("Called man");
+        };
+
+        document.getElementById("btn2").addEventListener('click', function(e) {
+            console.log("Start interval");
+            intervalId = setInterval(startinter, 1000);
+        })
+
+        document.getElementById("btn3").addEventListener('click', function(e) {
+            console.log("Stop interval");
+            clearInterval(intervalId); // Use the stored interval ID to clear the interval
+        })
+    </script>
+</body>
+</html>
