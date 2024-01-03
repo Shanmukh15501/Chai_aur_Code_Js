@@ -1,0 +1,100 @@
+//XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.
+//https://javascript.info/xmlhttprequest  follow this 
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<style>
+
+.main
+    {
+        border: 2px solid red;
+        margin: 100px;
+        height: 75%;
+        
+    }
+    #sub-1
+    {
+        border: 2px solid blue;
+        margin: 100px;
+        height: 50%;
+    }
+    #sub-2
+    {
+        border: 2px solid green;
+        margin: 100px;
+        height: 25%;
+    }
+    p {
+            position: relative; /* Set absolute positioning */
+            margin: 5px; /* Add margin for spacing */
+        }
+
+</style>
+
+<body>
+
+    <div class="main">
+        <p>1</p>
+        <div id="sub-1">
+            <p>2</p>
+
+            <div id="sub-2">
+                <p>3</p>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+<script>
+        let xhr = new XMLHttpRequest();
+
+
+// 2. Configure it: GET-request for the URL /article/.../load
+xhr.open('GET', 'https://api.publicapis.org/entries');
+xhr.responseType = 'json';
+
+
+// 3. Send the request over the network
+xhr.send();
+
+// 4. This will be called after the response is received
+xhr.onload = function() {
+  if (xhr.status != 200) { // analyze HTTP status of the response
+    alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+  } else { // show the result
+    alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
+  }
+};
+
+xhr.onprogress = function(event) {
+console.log("xhr.readyState",xhr.readyState);
+
+  if (event.lengthComputable) {
+    alert(`Received ${event.loaded} of ${event.total} bytes`);
+  } else {
+    alert(`Received ${event.loaded} bytes`); // no Content-Length
+  }
+
+};
+
+xhr.onerror = function() {
+  alert("Request failed");
+};
+  
+</script>
+</html>
+
